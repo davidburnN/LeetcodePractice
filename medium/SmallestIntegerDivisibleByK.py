@@ -1,5 +1,3 @@
-from tqdm import trange
-
 class Solution:
     def smallestRepunitDivByK(self, k: int) -> int:
         kStr = f'{k}'
@@ -9,10 +7,10 @@ class Solution:
         remainderList = [remainder]
         if remainder == 0:
             return kStrLen
-        for i in trange(k):
+        for i in range(k):
             remainder = (remainder*10+1)%k
             if remainder == 0:
-                return kStrLen+1
+                return int(f'{"1"*(kStrLen+1)}')
             elif remainder in remainderList:
                 return -1
             else:
@@ -21,7 +19,7 @@ class Solution:
         return -1
     
 sol = Solution()
-testn = 49993
+testn = 13
 N = sol.smallestRepunitDivByK(testn)
 print(N)
 print(N%testn)
