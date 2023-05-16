@@ -10,22 +10,30 @@ class Solution:
         assert (nums>=1).all() and (nums<=100).all(), 'integer in array should be between 1 and 100.'
         assert k>=1 and k<=100, 'k should be between 1 and 100.'
 
-        divlist = []
+        divList = []
+        divNumList = []
         pairs = 0
         for i in range(0, numsl, k):
             n = nums[i]
-            if n not in divlist:
-                divlist.append(n)
+            if n not in divList:
+                divList.append(n)
+                divNumList.append(1)
             else:
-                continue
+                divNumList[divList.index(n)] += 1
+                
 
-            nTotal = 0
+            nTotal = -1
             for j in range(numsl):
                 if n == nums[j]:
                     nTotal += 1
-            pairs += counts(nTotal)  
-        return pairs
+            pairs += nTotal  
+            print(nTotal)
+        print(divList)
+        print(divNumList)
+        for i in divNumList:
+            pairs -= counts(i)
+        return int(pairs) 
 
 sol = Solution()
-pairs = sol.countPairs([5,5,9,2,5,5,9,2,2,5,5,6,2,2,5,2,5,4,3], 7)
+pairs = sol.countPairs([10,2,3,4,9,6,3,10,3,6,3,9,1], 4)
 print(pairs)
