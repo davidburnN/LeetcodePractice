@@ -78,6 +78,10 @@ class Solution:
             self.helper(root.left, res)
             res.append(root.val)
             self.helper(root.right, res)
+
+class SolutionRecursive:
+    def inorderTraversal(self, root):
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
     
 sol = Solution()
 root = [1,None,2,3]
