@@ -32,7 +32,7 @@ def pickProblem(n, week):
 # diff = findDificulty(208)
 # print(diff)
 
-pickProblem(3, '5/15')
+pickProblem(3, '6/5')
 
 
 
